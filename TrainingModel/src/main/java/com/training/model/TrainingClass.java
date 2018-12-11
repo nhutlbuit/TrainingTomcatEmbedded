@@ -1,7 +1,9 @@
 package com.training.model;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,9 +20,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
+
 @Entity
 @Table(name = "TRAINING_CLASS")
-public class TrainingClass extends AbstractEntity{
+public class TrainingClass extends AbstractEntity implements Serializable{
 
 	/**
 	 * 
@@ -40,15 +47,16 @@ public class TrainingClass extends AbstractEntity{
 	private String classCode;
 	
 	@OrderBy("firstName desc")
-	//@Fetch(FetchMode.JOIN)
 	@OneToMany(mappedBy = "trainingClass", fetch = FetchType.LAZY, targetEntity = Student.class)
 	List<Student> students;
 	
+	@Basic(fetch = FetchType.LAZY)
 	@Column(name = "REF_TEACHER_CODE", length = 20)
 	private String refTeacherCode;
 	
-	//@Fetch(FetchMode.JOIN)
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@Fetch(FetchMode.SELECT)
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY, optional = false)
+	@LazyToOne(value = LazyToOneOption.NO_PROXY)
 	@JoinColumn(name = "REF_TEACHER_CODE", referencedColumnName = "TEACHER_CODE", 
 	insertable = false, updatable = false)
 	private Teacher teacherRef;
@@ -56,7 +64,7 @@ public class TrainingClass extends AbstractEntity{
 	@Column(name = "REF_COURSE_CODE", length = 20)
 	private String refCourseCode;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(optional = false)
 	@JoinColumn(name = "REF_COURSE_CODE", referencedColumnName = "COURSE_CODE", insertable = false, 
 	updatable = false)
 	private Course courseRef;

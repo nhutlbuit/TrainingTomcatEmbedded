@@ -19,7 +19,9 @@ public @Data class Course extends AbstractEntity implements Serializable {
 
 
 	/**
-	 * 
+	 * Hibernate does not support one-to-one and lazy loading.
+		Workaround:
+		Use one-to-many in parent and ono-to-one in child.
 	 */
 	private static final long serialVersionUID = 7560332713289109340L;
 
