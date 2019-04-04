@@ -1,29 +1,13 @@
 package com.training.model;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "TRAINING_CLASS")
@@ -57,8 +41,7 @@ public class TrainingClass extends AbstractEntity implements Serializable{
 	@Fetch(FetchMode.SELECT)
 	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY, optional = false)
 	@LazyToOne(value = LazyToOneOption.NO_PROXY)
-	@JoinColumn(name = "REF_TEACHER_CODE", referencedColumnName = "TEACHER_CODE", 
-	insertable = false, updatable = false)
+	@JoinColumn(name = "REF_TEACHER_CODE", referencedColumnName = "TEACHER_CODE", insertable = false, updatable = false)
 	private Teacher teacherRef;
 	
 	@Column(name = "REF_COURSE_CODE", length = 20)

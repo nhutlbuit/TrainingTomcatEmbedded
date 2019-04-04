@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import com.training.model.Student;
 
 @Api(tags = "Student information")
-@RepositoryRestResource(collectionResourceRel = "student", path = "student")
+@RepositoryRestResource()
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
 	@ApiOperation("Find by FirstName  ")

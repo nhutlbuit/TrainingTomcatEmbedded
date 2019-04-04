@@ -107,9 +107,8 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
 	private SecurityContext securityContext() {
 		return SecurityContext.builder()
-				.securityReferences(
-						Arrays.asList(new SecurityReference("spring_oauth", scopes())))
-				.forPaths(PathSelectors.regex("/TrainingClassTest.*"))
+				.securityReferences(Arrays.asList(new SecurityReference("spring_oauth", scopes())))
+				.forPaths(PathSelectors.regex("/trainingClassTests.*"))
 				.build();
 	}
 

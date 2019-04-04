@@ -13,7 +13,7 @@ import com.training.model.TrainingClass;
 import com.training.model.TrainingClassTest;
 
 @Api(tags = "Training Class")
-@RepositoryRestResource(collectionResourceRel = "TrainingClassTest", path = "TrainingClassTest") 
+@RepositoryRestResource()
 public interface TrainingClassRepositoryTest extends JpaRepository<TrainingClassTest, Long> {
 
 	@ApiOperation("Find by Class Code ")

@@ -3,6 +3,12 @@
 INSERT into TEACHER (TEACHER_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME) --ID,
 values ('tc01', 'Hải','Thanh','Phan');--1,
 
+INSERT into TEACHER (TEACHER_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME) --ID,
+values ('tc02', 'Bình Thuận','Giáo','Cô');--1,
+
+INSERT into TEACHER (TEACHER_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME) --ID,
+values ('tc03', 'Thảo','Giáo','Cô');--1,
+
 -- Course
 INSERT into COURSE (ID, COURSE_CODE, COURSE_NAME) 
 values (1, 'mat-01', 'Toan roi rac');
@@ -16,7 +22,15 @@ values (3, 'mat-03', 'Toan tuyen tinh');
 -- Training class
 INSERT into TRAINING_CLASS (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_CODE, REF_COURSE_CODE
 , FROM_DATE, TO_DATE) 
-values (1, 'class01', 'MAT', 'tc01', 'mat-02' , {ts '2018-10-25'},{ts '2019-05-25'});
+values (1, 'class01', 'MAT', 'tc01', 'mat-01' , {ts '2018-10-25'},{ts '2019-05-25'});
+
+INSERT into TRAINING_CLASS (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_CODE, REF_COURSE_CODE
+, FROM_DATE, TO_DATE)
+values (2, 'class02', 'MAT2', 'tc02', 'mat-02' , {ts '2018-10-25'},{ts '2019-05-25'});
+
+INSERT into TRAINING_CLASS (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_CODE, REF_COURSE_CODE
+, FROM_DATE, TO_DATE)
+values (3, 'class03', 'MAT3', 'tc03', 'mat-03' , {ts '2018-10-25'},{ts '2019-05-25'});
 
 -- Student
 INSERT into STUDENT (ID, STUDENT_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, REF_CLASS_CODE) 
@@ -26,11 +40,24 @@ INSERT into STUDENT (ID, STUDENT_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, REF_C
 values (2, 'st02', 'Vân','Thế','Lý', 'class01');
 
 INSERT into STUDENT (ID, STUDENT_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, REF_CLASS_CODE) 
-values (3, 'st03', 'Tốn','Văn','Tạ', 'class01');
+values (3, 'st03', 'Tốn','Văn','Tạ', 'class02');
 
 INSERT into STUDENT (ID, STUDENT_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, REF_CLASS_CODE) 
-values (4, 'st04', 'Kị','Vô','Trương', 'class01');
+values (4, 'st04', 'Kị','Vô','Trương', 'class02');
 
 INSERT into STUDENT (ID, STUDENT_CODE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, REF_CLASS_CODE) 
-values (5, 'st05', 'Vương','Minh','Hoàng', 'class01');
+values (5, 'st05', 'Vương','Minh','Hoàng', 'class03');
+
+-- Training class Test
+INSERT into TRAINING_CLASS_TEST (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_ID, REF_COURSE_ID
+, FROM_DATE, TO_DATE, SCORE)
+values (1, 'class01', 'MAT', '1', '1' , {ts '2018-10-25'},{ts '2019-05-25'}, 20);
+
+INSERT into TRAINING_CLASS_TEST (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_ID, REF_COURSE_ID
+, FROM_DATE, TO_DATE, SCORE)
+values (2, 'class02', 'MAT2', '2', '3' , {ts '2018-10-25'},{ts '2019-05-25'}, 21);
+
+INSERT into TRAINING_CLASS_TEST (ID, CLASS_CODE, CLASS_NAME, REF_TEACHER_ID, REF_COURSE_ID
+, FROM_DATE, TO_DATE, SCORE)
+values (3, 'class03', 'MAT3', '3', '3' , {ts '2018-10-25'},{ts '2019-05-25'}, 22);
 

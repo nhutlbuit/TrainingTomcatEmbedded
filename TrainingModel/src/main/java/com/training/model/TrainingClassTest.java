@@ -1,29 +1,13 @@
 package com.training.model;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "TRAINING_CLASS_TEST")
@@ -45,18 +29,20 @@ public class TrainingClassTest extends AbstractEntity implements Serializable{
 	
 	@Column(name = "REF_TEACHER_ID")
 	private long refTeacherCode;
-	
-	@OneToOne()
-	@JoinColumn(name = "REF_TEACHER_ID", referencedColumnName = "ID", 
-	insertable = false, updatable = false)
+
+	@Fetch(FetchMode.SELECT)
+	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY, optional = true)
+	@LazyToOne(value = LazyToOneOption.NO_PROXY)
+	@JoinColumn(name = "REF_TEACHER_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+	@RestResource(exported = true)
 	private Teacher teacherRef;
 	
 	@Column(name = "REF_COURSE_ID")
 	private long refCourseId;
 	
-	@OneToOne()
-	@JoinColumn(name = "REF_COURSE_ID", referencedColumnName = "ID", insertable = false, 
-	updatable = false)
+	@OneToOne(fetch = FetchType.LAZY, optional = true)
+	@JoinColumn(name = "REF_COURSE_ID", referencedColumnName = "ID", insertable = false, updatable = false)
+	@RestResource(exported = false) /* Enabled to hibernate to know to export the resource */
 	private Course courseRef;
 	
 	@Column(name = "FROM_DATE")

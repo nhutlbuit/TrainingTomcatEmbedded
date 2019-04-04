@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import com.training.model.TrainingClass;
 
 @Api(tags = "Training Class")
-@RepositoryRestResource(collectionResourceRel = "trainingClass", path = "trainingClass") 
+@RepositoryRestResource()
 public interface TrainingClassRepository extends JpaRepository<TrainingClass, Long> {
 
 	@ApiOperation("Find by Class Code ")
