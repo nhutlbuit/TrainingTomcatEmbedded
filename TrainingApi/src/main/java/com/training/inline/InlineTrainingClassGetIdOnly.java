@@ -8,6 +8,8 @@ import com.training.model.TrainingClass;
 public interface InlineTrainingClassGetIdOnly {
 	
 	public long getId();
+	public String getClassCode();
+	public String getClassName();
 	
 
 }

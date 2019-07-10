@@ -26,8 +26,7 @@ public class Student extends AbstractEntity implements Serializable, Cloneable {
 	private static final long serialVersionUID = 8208045971608928281L;
 
 	@Id
-	@SequenceGenerator(name = "studentIdSeq", sequenceName = "SEQ_STUDENT_ID", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "studentIdSeq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", unique = true, nullable = false, precision = 10, scale = 0)
 	private long id;
 	
@@ -55,7 +54,7 @@ public class Student extends AbstractEntity implements Serializable, Cloneable {
 	private java.util.Date dateOfBirth;
 	
 	@Column(name = "PHONE_NUMBER")
-	private Integer phoneNumber;
+	private String phoneNumber;
 	
 	@Column(name = "ADDRESS", length = 100)
 	private String address;
@@ -125,11 +124,11 @@ public class Student extends AbstractEntity implements Serializable, Cloneable {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Integer getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(Integer phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
