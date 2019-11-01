@@ -1,5 +1,6 @@
 package com.training.model;
 
+import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyToOne;
@@ -11,11 +12,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "TRAINING_CLASS")
+@Data
 public class TrainingClass extends AbstractEntity implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7189872751297163713L;
 
 	@Id
@@ -62,163 +61,4 @@ public class TrainingClass extends AbstractEntity implements Serializable{
 	
 	@Column(name = "SCORE")
 	private Double score;
-
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the className
-	 */
-	public String getClassName() {
-		return className;
-	}
-
-	/**
-	 * @param className the className to set
-	 */
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	/**
-	 * @return the fromDate
-	 */
-	public java.util.Date getFromDate() {
-		return fromDate;
-	}
-
-	/**
-	 * @param fromDate the fromDate to set
-	 */
-	public void setFromDate(java.util.Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	/**
-	 * @return the toDate
-	 */
-	public java.util.Date getToDate() {
-		return toDate;
-	}
-
-	/**
-	 * @param toDate the toDate to set
-	 */
-	public void setToDate(java.util.Date toDate) {
-		this.toDate = toDate;
-	}
-
-	/**
-	 * @return the score
-	 */
-	public Double getScore() {
-		return score;
-	}
-
-	/**
-	 * @param score the score to set
-	 */
-	public void setScore(Double score) {
-		this.score = score;
-	}
-
-	/**
-	 * @return the classCode
-	 */
-	public String getClassCode() {
-		return classCode;
-	}
-
-	/**
-	 * @param classCode the classCode to set
-	 */
-	public void setClassCode(String classCode) {
-		this.classCode = classCode;
-	}
-
-
-	/**
-	 * @return the students
-	 */
-	public List<Student> getStudents() {
-		return students;
-	}
-
-	/**
-	 * @param students the students to set
-	 */
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-
-	/**
-	 * @return the refTeacherCode
-	 */
-	public String getRefTeacherCode() {
-		return refTeacherCode;
-	}
-
-	/**
-	 * @param refTeacherCode the refTeacherCode to set
-	 */
-	public void setRefTeacherCode(String refTeacherCode) {
-		this.refTeacherCode = refTeacherCode;
-	}
-
-	/**
-	 * @return the teacherRef
-	 */
-	public Teacher getTeacherRef() {
-		return teacherRef;
-	}
-
-	/**
-	 * @param teacherRef the teacherRef to set
-	 */
-	public void setTeacherRef(Teacher teacherRef) {
-		this.teacherRef = teacherRef;
-	}
-
-	/**
-	 * @return the refCourseCode
-	 */
-	public String getRefCourseCode() {
-		return refCourseCode;
-	}
-
-	/**
-	 * @param refCourseCode the refCourseCode to set
-	 */
-	public void setRefCourseCode(String refCourseCode) {
-		this.refCourseCode = refCourseCode;
-	}
-
-	/**
-	 * @return the courseRef
-	 */
-	public Course getCourseRef() {
-		return courseRef;
-	}
-
-	/**
-	 * @param courseRef the courseRef to set
-	 */
-	public void setCourseRef(Course courseRef) {
-		this.courseRef = courseRef;
-	}
-
-	
-	
-	
 }

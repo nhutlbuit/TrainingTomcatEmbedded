@@ -1,5 +1,6 @@
 package com.training.model;
 
+import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyToOne;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "TRAINING_CLASS_TEST")
+@Data
 public class TrainingClassTest extends AbstractEntity implements Serializable{
 
 	private static final long serialVersionUID = -7866462895714629393L;
@@ -55,121 +57,4 @@ public class TrainingClassTest extends AbstractEntity implements Serializable{
 	
 	@Column(name = "SCORE")
 	private Double score;
-
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the className
-	 */
-	public String getClassName() {
-		return className;
-	}
-
-	/**
-	 * @param className the className to set
-	 */
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	/**
-	 * @return the fromDate
-	 */
-	public java.util.Date getFromDate() {
-		return fromDate;
-	}
-
-	/**
-	 * @param fromDate the fromDate to set
-	 */
-	public void setFromDate(java.util.Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	/**
-	 * @return the toDate
-	 */
-	public java.util.Date getToDate() {
-		return toDate;
-	}
-
-	/**
-	 * @param toDate the toDate to set
-	 */
-	public void setToDate(java.util.Date toDate) {
-		this.toDate = toDate;
-	}
-
-	/**
-	 * @return the score
-	 */
-	public Double getScore() {
-		return score;
-	}
-
-	/**
-	 * @param score the score to set
-	 */
-	public void setScore(Double score) {
-		this.score = score;
-	}
-
-	/**
-	 * @return the classCode
-	 */
-	public String getClassCode() {
-		return classCode;
-	}
-
-	/**
-	 * @param classCode the classCode to set
-	 */
-	public void setClassCode(String classCode) {
-		this.classCode = classCode;
-	}
-
-
-	/**
-	 * @return the teacherRef
-	 */
-	public Teacher getTeacherRef() {
-		return teacherRef;
-	}
-
-	/**
-	 * @param teacherRef the teacherRef to set
-	 */
-	public void setTeacherRef(Teacher teacherRef) {
-		this.teacherRef = teacherRef;
-	}
-
-	/**
-	 * @return the courseRef
-	 */
-	public Course getCourseRef() {
-		return courseRef;
-	}
-
-	/**
-	 * @param courseRef the courseRef to set
-	 */
-	public void setCourseRef(Course courseRef) {
-		this.courseRef = courseRef;
-	}
-
-	
-	
-	
 }
