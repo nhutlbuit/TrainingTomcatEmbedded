@@ -26,8 +26,10 @@ public class RestApiController {
 
     @GetMapping("/todo/{todoId}")
     public Todo getTodo(@PathVariable(name = "todoId") Integer todoId) throws Exception {
+       // NullPointerException
         todoList = null;
         todoList.get(0);
+        // IndexOutOfBoundsException
         Todo todo = todoList.get(todoId);
         return todo;
     }
