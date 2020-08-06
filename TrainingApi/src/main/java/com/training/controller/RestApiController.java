@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -32,5 +33,13 @@ public class RestApiController {
         // IndexOutOfBoundsException
         Todo todo = todoList.get(todoId);
         return todo;
+    }
+
+    public void optionalJava8() {
+       // callOptionalVariable("Le", "Nam", 22);
+    }
+
+    private String callOptionalVariable(String firstName, Optional<String> lastName, Optional<Integer> age) {
+        return firstName + ' ' + lastName + ' ' + String.valueOf(age);
     }
 }
