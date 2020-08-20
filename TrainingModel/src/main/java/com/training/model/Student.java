@@ -1,33 +1,19 @@
 package com.training.model;
 
-import java.io.Serializable;
+import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "STUDENT")
+@Data
 public class Student extends AbstractEntity implements Serializable, Cloneable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8208045971608928281L;
 
 	@Id
-	@SequenceGenerator(name = "studentIdSeq", sequenceName = "SEQ_STUDENT_ID", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "studentIdSeq")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID", unique = true, nullable = false, precision = 10, scale = 0)
 	private long id;
 	
@@ -55,89 +41,9 @@ public class Student extends AbstractEntity implements Serializable, Cloneable {
 	private java.util.Date dateOfBirth;
 	
 	@Column(name = "PHONE_NUMBER")
-	private Integer phoneNumber;
+	private String phoneNumber;
 	
 	@Column(name = "ADDRESS", length = 100)
 	private String address;
 
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getStudentCode() {
-		return studentCode;
-	}
-
-	public void setStudentCode(String studentCode) {
-		this.studentCode = studentCode;
-	}
-
-	public String getClassCode() {
-		return classCode;
-	}
-
-	public void setClassCode(String classCode) {
-		this.classCode = classCode;
-	}
-
-	public TrainingClass getTrainingClass() {
-		return trainingClass;
-	}
-
-	public void setTrainingClass(TrainingClass trainingClass) {
-		this.trainingClass = trainingClass;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public java.util.Date getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	public void setDateOfBirth(java.util.Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
-	public Integer getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(Integer phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 }

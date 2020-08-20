@@ -2,7 +2,9 @@ package com.training.repository;
 
 import java.util.List;
 
+import com.training.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -18,4 +20,8 @@ public interface TrainingClassRepository extends JpaRepository<TrainingClass, Lo
 	@ApiOperation("Find by Class Code ")
 	@RestResource(path = "byClassCode")
 	List<TrainingClass> findByClassCodeIgnoreCaseContains(@Param("classCode") String classCode);
+
+	@RestResource(path = "fetchClassCodes")
+	@Query("Select t from TrainingClass t")
+	List<TrainingClass> fetchClassCodes();
 }
